@@ -1,4 +1,11 @@
-export function Nav({ currentTab, setCurrentTab }: any) {
+export function Nav({
+  currentTab,
+  setCurrentTab,
+  unreadEmails,
+  starredEmails,
+  hideRead,
+  setHideRead,
+}: any) {
   return (
     <nav className="left-menu">
       <ul className="inbox-list">
