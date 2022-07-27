@@ -1,6 +1,6 @@
-export function Email({ emailFiltered, indexFiltered, setEmails }: any) {
+export function Email({ emailFiltered, emails, setEmails }: any) {
   const toggleStar = (targetEmail: any) => {
-    const updatedEmails = (emails: any) =>
+    const updatedEmails = () =>
       emails.map((email: any) =>
         email.id === targetEmail.id
           ? { ...email, starred: !email.starred }
@@ -10,7 +10,7 @@ export function Email({ emailFiltered, indexFiltered, setEmails }: any) {
   };
 
   const toggleRead = (targetEmail: any) => {
-    const updatedEmails = (emails: any) =>
+    const updatedEmails = () =>
       emails.map((email: any) =>
         email.id === targetEmail.id ? { ...email, read: !email.read } : email
       );
@@ -18,10 +18,7 @@ export function Email({ emailFiltered, indexFiltered, setEmails }: any) {
   };
 
   return (
-    <li
-      key={indexFiltered}
-      className={`email ${emailFiltered.read ? "read" : "unread"}`}
-    >
+    <li className={`email ${emailFiltered.read ? "read" : "unread"}`}>
       <div className="select">
         <input
           className="select-checkbox"
