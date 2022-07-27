@@ -1,4 +1,4 @@
-export function Email({ email, index, emails, setEmails }: any) {
+export function Email({ emailFiltered, indexFiltered, setEmails }: any) {
   const toggleStar = (targetEmail: any) => {
     const updatedEmails = (emails: any) =>
       emails.map((email: any) =>
@@ -18,25 +18,28 @@ export function Email({ email, index, emails, setEmails }: any) {
   };
 
   return (
-    <li key={index} className={`email ${email.read ? "read" : "unread"}`}>
+    <li
+      key={indexFiltered}
+      className={`email ${emailFiltered.read ? "read" : "unread"}`}
+    >
       <div className="select">
         <input
           className="select-checkbox"
           type="checkbox"
-          checked={email.read}
-          onChange={() => toggleRead(email)}
+          checked={emailFiltered.read}
+          onChange={() => toggleRead(emailFiltered)}
         />
       </div>
       <div className="star">
         <input
           className="star-checkbox"
           type="checkbox"
-          checked={email.starred}
-          onChange={() => toggleStar(email)}
+          checked={emailFiltered.starred}
+          onChange={() => toggleStar(emailFiltered)}
         />
       </div>
-      <div className="sender">{email.sender}</div>
-      <div className="title">{email.title}</div>
+      <div className="sender">{emailFiltered.sender}</div>
+      <div className="title">{emailFiltered.title}</div>
     </li>
   );
 }

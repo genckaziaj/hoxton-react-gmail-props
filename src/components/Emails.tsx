@@ -6,8 +6,8 @@ export function Emails({ getFilteredEmails, emails, setEmails }: any) {
       <ul>
         {getFilteredEmails.map((email: any, index: any) => (
           <Email
-            email={email}
-            index={index}
+            emailFiltered={email}
+            indexFiltered={index}
             emails={emails}
             setEmails={setEmails}
           />
