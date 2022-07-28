@@ -1,6 +1,6 @@
-export function Email({ emailFiltered, emails, setEmails }: any) {
+export function Email({ emailFiltered, setEmails }: any) {
   const toggleStar = (targetEmail: any) => {
-    const updatedEmails = () =>
+    const updatedEmails = (emails: any) =>
       emails.map((email: any) =>
         email.id === targetEmail.id
           ? { ...email, starred: !email.starred }
@@ -10,7 +10,7 @@ export function Email({ emailFiltered, emails, setEmails }: any) {
   };
 
   const toggleRead = (targetEmail: any) => {
-    const updatedEmails = () =>
+    const updatedEmails = (emails: any) =>
       emails.map((email: any) =>
         email.id === targetEmail.id ? { ...email, read: !email.read } : email
       );
